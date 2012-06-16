@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>jMarkdown Test</title>
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				width: 100%;
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			#page-container {
+				height: 100%;
+			}
+			
+			#editor-layout-table {
+				height: 100%;
+				width: 100%;
+			}
+			
+			#editor-container {
+				width: 50%;
+				height: 100%;
+			}
+			
+			#editor {
+				width: 99%;
+				height: 100%;
+			}
+			
+			#output-container {
+				width: 50%;
+				height: 100%;
+				background-color: yellow;
+			}
+			
+			#output {
+				padding: 10px;
+				vertical-align: top;
+			}
+		</style>
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="jmarkdown.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				$('#editor').on('keyup', function () {
+					$('#output').html(jMarkdown.md2html($('#editor').val()));
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page-container">
+			<table id="editor-layout-table">
+				<tbody>
+					<tr>
+						<td id="editor-container">
+							<textarea id="editor"></textarea>
+						</td>
+						<td id="output-container" valign="top">
+							<div id="output">
+							
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
